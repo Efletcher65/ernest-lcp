@@ -1,16 +1,169 @@
 ---
+import '../styles.css'
+import { getImage } from 'astro:assets'
+import Menu from '../components/Menu.astro'
+import heroBackground from '../images/group-therapy.jpg'
+import Bullet from '../images/bullet.svg'
+import Heart from '../images/heart.svg'
+import Briefcase from '../images/briefcase.svg'
+import Intake from '../images/intake.svg'
+import Scale from '../images/scale.svg'
+import Voice from '../images/voice.svg'
+import Male from '../images/male.svg'
+import Sad from '../images/sad.svg'
+import Home from '../images/home.svg'
 
+const optimizedHeroBackground = await getImage({
+  src: heroBackground,
+  format: 'avif',
+})
+
+const services = [
+  {
+    title: 'Therapy for Young Boys (10–18)',
+    image: Male,
+    content:
+      'Working with youth from single-parent households who may be struggling with behavior, school, anger, or peer pressure. My goal is to intervene early and help build identity, confidence, and positive choices.',
+  },
+  {
+    title: 'Grief Counseling',
+    image: Sad,
+    content:
+      'Loss is never easy. I support individuals navigating death, divorce, abandonment, or personal crisis with patience and care.',
+  },
+  {
+    title: 'Support for Veterans & Homeless Individuals',
+    image: Home,
+    content:
+      'Many of my clients are veterans or civilians who have experienced homelessness. I offer trauma-informed care with an emphasis on dignity, trust, and empowerment.',
+  },
+]
+
+const fees = [
+  {
+    title: 'Initial Intake',
+    content: 'Initial 90 minute intake session for $120',
+    image: Intake,
+  },
+  {
+    title: 'Individual Sessions',
+    content: 'Ongoing sessions are 60 mins for $90',
+    image: Voice,
+  },
+  {
+    title: 'Insurance',
+    content: 'I currently accept most major insurance plans',
+    image: Briefcase,
+  },
+  {
+    title: 'No Insurance?',
+    content: 'Sliding scale options may be available upon request',
+    image: Scale,
+  },
+]
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class='m-4'>
+    <Menu>
+      <div
+        id='home'
+        class='hero min-h-screen'
+        style=`background-image: url(${optimizedHeroBackground.src});`
+      >
+        <div class='hero-overlay'></div>
+        <div class='hero-content text-neutral-content text-center'>
+          <div class='max-w-lg'>
+            <h1 class='mb-5 text-5xl font-bold'>Ernest Fletcher, LCP</h1>
+            <p class='mb-5'>
+              I’m Ernest Fletcher, a Licensed Clinical Psychologist with 3 years
+              of experience working with individuals who’ve faced some of life’s
+              toughest challenges. My mission is to offer compassionate,
+              culturally sensitive therapy that helps clients build emotional
+              strength, stability, and purpose.
+            </p>
+            <!-- <button class='btn btn-primary'>Get Started</button> -->
+          </div>
+        </div>
+      </div>
+
+      <div class='divider'></div>
+
+      <section class='bg-base-300 rounded-box flex flex-col p-4' id='overview'>
+        <h2 class='base-content mx-auto mb-3 text-3xl font-bold'>
+          Therapeutic Style
+        </h2>
+        <p class='prose lg:prose-xl base-content mx-auto'>
+          I take a direct, respectful, and goal-oriented approach to therapy. My
+          style combines cognitive behavioral therapy (CBT), motivational
+          interviewing, and life skills coaching. I work collaboratively to help
+          each client set realistic goals, cope with challenges, and build a
+          healthy life path.
+        </p>
+      </section>
+
+      <div class='divider'></div>
+
+      <section class='bg-base-300 rounded-box flex flex-col p-4' id='services'>
+        <h2 class='base-content mx-auto mb-3 text-3xl font-bold'>
+          Specialties & Services
+        </h2>
+
+        <ul class='list bg-base-100 rounded-box shadow-md'>
+          {
+            services.map((service) => (
+              <li class='list-row'>
+                <div class='flex items-center max-sm:hidden'>
+                  <service.image width={24} height={24} />
+                </div>
+                <div class='list-col-grow'>
+                  <div>{service.title}</div>
+                  <div class='text-xs font-semibold uppercase opacity-60'>
+                    {service.content}
+                  </div>
+                </div>
+                <div class='flex items-center max-sm:hidden'>
+                  <Heart width={24} height={24} />
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <div class='divider'></div>
+
+      <section class='bg-base-300 rounded-box flex flex-col p-4' id='fees'>
+        <h2 class='base-content mx-auto mb-3 text-3xl font-bold'>
+          Fees and Insurance
+        </h2>
+        <ul class='grid grid-cols-1 gap-2 md:grid-cols-2'>
+          {
+            fees.map((fee) => (
+              <li class='prose lg:prose-xl md:nth-2:bg-primary md:nth-3:bg-primary md:nth-1:bg-base-100 md:nth-4:bg-base-100 rounded-box max-sm:odd:bg-primary max-sm:even:bg-base-100 p-10'>
+                <div class='flex items-center gap-10'>
+                  <fee.image width={64} height={64} />
+                  <h3 class='m-0!'>{fee.title}</h3>
+                </div>
+                <p>{fee.content}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </Menu>
+  </body>
 </html>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

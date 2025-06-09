@@ -1,0 +1,43 @@
+---
+import MenuIcon from '../images/menu.svg'
+---
+
+<div class='drawer'>
+  <input id='my-drawer-3' type='checkbox' class='drawer-toggle' />
+  <div class='drawer-content flex flex-col'>
+    <!-- Navbar -->
+    <div class='navbar bg-base-300 fixed w-full md:z-10'>
+      <div class='flex-none lg:hidden'>
+        <label
+          for='my-drawer-3'
+          aria-label='open sidebar'
+          class='btn btn-square btn-ghost'
+        >
+          <MenuIcon width={24} height={24} />
+        </label>
+      </div>
+      <div class='mx-2 flex-1 px-2'>
+        <a href='#home'>Ernest Fletcher, LCP</a>
+      </div>
+      <div class='hidden flex-none lg:block'>
+        <ul class='menu menu-horizontal'>
+          <!-- Navbar menu content here -->
+          <li><a href='#overview'>Overview</a></li>
+          <li><a href='#services'>Specialties and Services</a></li>
+          <li><a href='#fees'>Fees and Insurance</a></li>
+        </ul>
+      </div>
+    </div>
+    <slot />
+  </div>
+  <div class='drawer-side'>
+    <label for='my-drawer-3' aria-label='close sidebar' class='drawer-overlay'
+    ></label>
+    <ul class='menu bg-base-200 min-h-full w-80 p-4'>
+      <!-- Sidebar content here -->
+      <li><a href='#overview'>Overview</a></li>
+      <li><a href='#services'>Specialties and Services</a></li>
+      <li><a href='#fees'>Fees and Insurance</a></li>
+    </ul>
+  </div>
+</div>
