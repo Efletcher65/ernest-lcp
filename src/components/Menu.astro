@@ -1,5 +1,6 @@
 ---
 import MenuIcon from '../images/menu.svg'
+import Links from './Links.astro'
 ---
 
 <div class='drawer'>
@@ -22,9 +23,7 @@ import MenuIcon from '../images/menu.svg'
       <div class='hidden flex-none lg:block'>
         <ul class='menu menu-horizontal'>
           <!-- Navbar menu content here -->
-          <li><a href='#overview'>Overview</a></li>
-          <li><a href='#services'>Specialties and Services</a></li>
-          <li><a href='#fees'>Fees and Insurance</a></li>
+          <Links />
         </ul>
       </div>
     </div>
@@ -35,9 +34,7 @@ import MenuIcon from '../images/menu.svg'
     ></label>
     <ul class='menu bg-base-200 min-h-full w-80 p-4'>
       <!-- Sidebar content here -->
-      <li><a href='#overview'>Overview</a></li>
-      <li><a href='#services'>Specialties and Services</a></li>
-      <li><a href='#fees'>Fees and Insurance</a></li>
+      <Links />
     </ul>
   </div>
 </div>
