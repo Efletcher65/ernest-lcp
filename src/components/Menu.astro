@@ -1,6 +1,9 @@
 ---
+import { DaisyTheme } from 'astro-daisy-theme-toggle'
 import MenuIcon from '../images/menu.svg'
 import Links from './Links.astro'
+import Sun from '../images/sun.svg'
+import Moon from '../images/moon.svg'
 ---
 
 <div class='drawer'>
@@ -18,7 +21,18 @@ import Links from './Links.astro'
         </label>
       </div>
       <div class='mx-2 flex-1 px-2'>
-        <a href='#home'>Ernest Fletcher, LCP</a>
+        <DaisyTheme darkTheme='dim' lightTheme='bumblebee'>
+          <label class='swap swap-rotate'>
+            <!-- this hidden checkbox controls the state -->
+            <input type='checkbox' class='theme-controller' value='synthwave' />
+
+            <Sun class='swap-off' width={32} height={32} />
+
+            <Moon class='swap-on' width={32} height={32} />
+          </label>
+        </DaisyTheme>
+
+        <a class='ml-4' href='#home'>Ernest Fletcher, LCP</a>
       </div>
       <div class='hidden flex-none lg:block'>
         <ul class='menu menu-horizontal'>

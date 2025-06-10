@@ -79,7 +79,7 @@ const fees = [
       >
         <div class='hero-overlay'></div>
         <div class='hero-content text-neutral-content text-center'>
-          <div class='max-w-lg'>
+          <div class='max-w-md'>
             <h1 class='mb-5 text-5xl font-bold'>Ernest Fletcher, LCP</h1>
             <p class='mb-5'>
               I’m Ernest Fletcher, a Licensed Clinical Psychologist with 3 years
@@ -150,13 +150,13 @@ const fees = [
         <div class='grid grid-cols-1 gap-2 md:grid-cols-2'>
           {
             fees.map((fee) => (
-              <div class='card card-md md:nth-2:bg-primary md:nth-3:bg-primary md:nth-1:bg-base-100 md:nth-4:bg-base-100 max-sm:odd:bg-primary max-sm:even:bg-base-100 w-full shadow-sm'>
+              <div class='card card-md md:nth-2:text-primary-content md:nth-3:text-primary-content md:nth-2:bg-primary md:nth-3:bg-primary md:nth-1:bg-base-100 md:nth-4:bg-base-100 max-sm:odd:bg-primary max-sm:odd:text-primary-content max-sm:even:bg-base-100 w-full shadow-sm'>
                 <div class='card-body'>
                   <div class='mb-4 flex items-center gap-6'>
                     <fee.image width={50} height={50} />
-                    <h3 class='card-title'>{fee.title}</h3>
+                    <h3 class='card-title text-2xl'>{fee.title}</h3>
                   </div>
-                  <p class='prose md:prose-xl'>{fee.content}</p>
+                  <p class='text-xl'>{fee.content}</p>
                 </div>
               </div>
             ))
